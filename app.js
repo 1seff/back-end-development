@@ -18,7 +18,11 @@ app.post("/save", async (req, res) => {
       name,
     },
   });
-  res.json({ user });
+
+  res.json({
+    user,
+    message: "User created successfully.",
+  });
 });
 
 // USING GET METHOD. Retrieves all users without any filters and returns it.
@@ -82,6 +86,11 @@ app.delete("/delete/:id", async (req, res) => {
       ? "Deleted succesfully."
       : "Error! No entry to delete.",
   });
+});
+
+// USING POST METHOD. Returns data containing string Hello World.
+app.get("/helloworld", async (req, res) => {
+  res.json({ data: "Hello World" });
 });
 
 // USING GET METHOD. Returns a dynamic data based on query variable 'sample'.
